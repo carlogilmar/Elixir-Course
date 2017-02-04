@@ -327,9 +327,17 @@ page controller
 index
 page view
 
+# Diferencias entre los protocolos http 1.0, 1.1, y 2.0
+
+keep Alive 1.0 y 1.1
+
+Multiplexado y bidireccional entre 1.1 y 2.0
  
 
+HandShake ...
+Pool de conexiones
 
+10 request en phoenix solo crean un proceso, por el keep alive
 
 
 
