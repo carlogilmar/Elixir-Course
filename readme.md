@@ -11,7 +11,7 @@ Itinerario del día
 - Primer proyecto básico de Elixir
 	- Archivo mix.exs
 	- Agregando funcion en lib/counter.exs
-	-
+	- Agregando la shell IEx en el proyecto de mix
 
 # Estructura de Elixir
 ----
@@ -208,4 +208,24 @@ Formas de correr elixir:
 	Script de Elixir
 	Proyecto de elixir
 
+Es necesario tener instalada la máquina virtual de Erlang para compilar y ejecutar.
+
+# Shells
+
+IEx levanta la máquina virtual y una shell
+Dentro del proyecto generado por mix
+
+> iex -S mix
+
+
+> (master) ♈️  ♐️  :: iex -S mix
+>Erlang/OTP 19 [erts-8.2] [source-fbd2db2] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
+
+>Interactive Elixir (1.4.0) - press Ctrl+C to exit (type h() ENTER for help)
+>iex(1)> Counter.main("nothing")
+>99171
+>:ok
+
+# Comando (i)nspect
+iex(1)> i "este es el parametro que le estoy dando a i paq me de la info de ese dato"
 
