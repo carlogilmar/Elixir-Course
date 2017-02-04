@@ -6,6 +6,12 @@ Itinerario del día
 - Topic 2: Introducción
 - Ejercicio Hola mundo
 - Ejercicio Archivo elixir, contador de lineas
+- Transformación del contador de lineas a Módulo
+- Mix
+- Primer proyecto básico de Elixir
+	- Archivo mix.exs
+	- Agregando funcion en lib/counter.exs
+	-
 
 # Estructura de Elixir
 ----
@@ -120,10 +126,86 @@ Modulo File, Función Read
 |> Operador pipe
 
 
+Diferencia entre Expresiones y Sentencias
+
+Lenguajes para expresiones y sentencias
+Lenguajes para expresiones 
+Lenguajes para sentencias
+
+Expresión: Tiene un valor asociado, cuando se ejecuta siempre devuelve algo.
+Sentencia: No devuelve un valor.
+
+Ejemplo: IF no es una expresión, no tiene ningún valor asociado en Java.
+En ruby si lo es. var algo = if()
 
 
+# Mix Command
 
+Despliegue, pruebas, dependencias <------ equivalente a build/.Net, combinación maven/ant/gradle etc... en JAVA
 
+Si agregamos phoenix, le agrega comandos a MIX, se puede agregar nuevas cosas
 
+> $ mix -h
+
+> $ mix new counter
+ 
+Creará una estructura basica de proyecto de elixir
+
+.
+├── config
+│   └── config.exs
+├── lib
+│   └── counter.ex
+├── mix.exs
+├── README.md
+└── test
+    ├── counter_test.exs
+    └── test_helper.exs
+
+terminaciones
+.ex codigo elixir que generará código de byte .beam
+.exs elixir Script, es algo que se ejecturará
+
+- Config
+	Configuraciones según el ambiente
+
+- Lib
+	Documentacion con anotaciones
+		## Examples <-------------prueba 
+			iex> Counter.hello
+			iex> :world
+	$ mix test
+
+- mix.exs: DSL que indicará cómo se ejecuta el proyecto
+	application: Dependencias para que se ejecute el proyecto
+	extra_aaplication: [:logger]
+				*** el loger correrá por separado, y la aplicación igual, como un SO<---- "micro servicios<---- "micro servicios""
+	deps: Lo que necesita la app cuando  se compila el proyecto
+
+- test: Pruebas unitarias
+	$ mix test
+	2 test
+		prueba
+
+- README
+
+Como el runtime de Java no puede manejar lo mismo, debe irse al siguiente nivel.
+
+Proceso de un SO: Linux 2 Mb ram; Windows 1 MB ram, US10 10 MB ram
+
+Procesos Erlang: 2 kb ram.
+
+No es fácil crear microservicios por la orquestación. Erlang ya tiene todos esos mecanismos.
+
+Agregando linea en mix.exs
+
+Compilando y generando el binario:
+	$ mix escript.build
+	$ ./counter
+
+Formas de correr elixir:
+	Shell Elixir Interactive
+	Script de Elixir
+	Proyecto de elixir
 
 
