@@ -12,6 +12,8 @@ Itinerario del día
 	- Archivo mix.exs
 	- Agregando funcion en lib/counter.exs
 	- Agregando la shell IEx en el proyecto de mix
+- Instalando Phoenix
+- Herramientas de monitoreo observer.start
 
 # Estructura de Elixir
 ----
@@ -228,4 +230,115 @@ Dentro del proyecto generado por mix
 
 # Comando (i)nspect
 iex(1)> i "este es el parametro que le estoy dando a i paq me de la info de ese dato"
+
+# Instalando hex y Phoenix
+
+> (master) ♈️  ♐️  :: mix local.hex
+>Are you sure you want to install archive "https://repo.hex.pm/installs/1.3.0/hex-0.15.0.ez"? [Yn] Y
+>* creating /home/carlosins/.mix/archives/hex-0.15.0
+> (master) ♈️  ♐️  :: mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+>Are you sure you want to install archive "https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez"? [Yn] Y
+>* creating /home/carlosins/.mix/archives/phoenix_new
+
+
+hex.pm  es el repositorio central donde podemos ver todas las librerias <--- maven central
+
+# Monitoreo gráfico
+
+> :observer.start
+
+# Primer proyecto en phoenix
+
+ (master) ♈️  ♐️  :: mix phoenix.new --no-brunch test
+* creating test/config/config.exs
+* creating test/config/dev.exs
+* creating test/config/prod.exs
+
+ (master) ♈️  ♐️  :: iex -S mix phoenix.server 
+
+Error, refuse connection db
+
+Instalar PostGres
+
+Crear la db
+> mix ecto.create
+
+> mix ecto.migrate
+
+ (master) ♈️  ♐️  :: iex -S mix phoenix.server 
+
+Aplicación arriba en localhost.
+
+No necesita servidor, ya trae Cowboy.
+
+# Proyecto de Phoenix
+
+Revisar el mix.exs de nuevo:
+
+Compilers:
+:phoenix <--- compilador de phoenix
+:gettext <--- compilador, internacionalización y traducción
+
+- aliases:
+	Función
+		mix ecto.create
+		mix ecto.migrate
+	Alias de shell
+		ecto.setup
+		ecto.reset
+		test
+- Aplicaciones:(tiempo de ejecución)
+	phoenix
+	logger
+	postgres
+	ecto
+	cowboy
+
+- Paths
+
+--- > def something // defp(rivate) privadas para llamar solo dentro del mismo módulo
+
+- deps (dependencias)
+
+	phoenix_ecto
+	phoenix_live_reload
+	phoenix_cowboy
+
+
+Modulo principal test--->lib/test.exs
+
+
+Revisando la carpeta *config*
+
+	Ambiente de pruebas
+	End point(puerto)
+	Secret Key Base
+
+## Flujo Phoenix
+
+EndPoint
+Router
+Controller
+plug head
+plug session
+test router
+accept
+page controller
+index
+page view
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
