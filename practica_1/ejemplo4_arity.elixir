@@ -1,0 +1,10 @@
+IO.puts "Arity"
+
+defmodule Rectangle do
+	def area(a), do: area(a,a)
+
+	def area(a,b), do: a*b
+end
+
+Rectangle.area(5,1) |> IO.puts
+Rectangle.area(10) |> IO.puts
