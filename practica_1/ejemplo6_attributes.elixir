@@ -1,0 +1,9 @@
+IO.puts "Attributes"
+
+defmodule Circle do
+	@pi 3.1415
+
+	def area(r), do: r*r*@pi
+end
+
+Circle.area(2) |> IO.puts

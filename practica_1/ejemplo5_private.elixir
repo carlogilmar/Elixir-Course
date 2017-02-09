@@ -1,0 +1,13 @@
+IO.puts "Private function"
+
+defmodule TestPrivate do
+	def double(a) do
+		suma(a,a)
+	end
+
+	defp suma(a,b) do
+		a+b
+	end
+end
+
+TestPrivate.double(3) |> IO.puts
