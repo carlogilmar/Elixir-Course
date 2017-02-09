@@ -1,0 +1,13 @@
+IO.puts "Ejemplo 2 Funciones en elixir"
+
+defmodule Geometry do
+	def rectangle_area(a,b) do
+		a*b
+	end
+	def square_area(a) do
+		rectangle_area(a,a)
+	end
+end
+
+IO.puts Geometry.square_area(5)
+
