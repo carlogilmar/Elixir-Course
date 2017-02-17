@@ -7,13 +7,14 @@ defmodule Listas do
   def crear_lista(0, list), do: list
   def crear_lista(n, list), do: crear_lista(n-1, [n*10|list])
 
-  def reversa([a]), do: a
-  def reversa([a,b]), do: [b,a]
-  def reversa([h|t]), do: reversa(t)
+  #-----------------------------------------Reversa bueno
+  def reverse(s) when is_list(s) do
+    _reverse(s, [])
+  end
 
-  def revert(lista), do: reverse(lista,[])
-  def reverse([], list), do: list
-  def reverse([h|t], list), do: reverse()
+  defp _reverse([],reverso), do: reverso
+  defp _reverse([h | t],reverso), do: _reverse(t, [h | reverso])
+
 
   #--------------------------------------Suma de Lista
   def suma_lista(lista), do: suma(lista,0)
