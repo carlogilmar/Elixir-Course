@@ -73,6 +73,24 @@ Siguiente paso en el curso: abrir el iex con mix, se seguiran descargando depend
 > iex(6)> HTTPoison.get "https://api.github.com/users/neodevelop"
 > blablalablabla 200
 
+Agregamos otro modulo en elixir Followers
+
+---
+
+Compresiones
+
+> for x <- [1,2,3,4], do: x
+> for x <- [1,2,3,4], do: x+1
+> for x <- [1,2,3,4], rem(x,3)== 0, do: x+1
+> for x <- [1,2,3,4], rem(x,2)== 0, do: x+1
+> for x <- [1,2,3,4], rem(x,2)== 0, do: {x, x+1}
+
+> for x <- [1,2,3,4], rem(x,2)== 0, y <- [5,6,7,8,9], do: {x, x*2, y}
+
+> for x <- [1,2,3,4], y <- [5,6,7,8], do: {x,y}
+
+> for x <- [1,2,3,4], y <- [5,6,7,8], rem(x,2) ==0, do: {x,y}
+
 
 
 
