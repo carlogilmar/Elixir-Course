@@ -1,4 +1,8 @@
 defmodule Twinder.User.Followers do
+  import String, only: [replace: 3]
+  import JSON, only: [decode: 1]
+  #import Integer, only: :macros
+  #import Integer, only: :functions
 
   @followers_url "https://api.github.com/users/:username/followers"
   @access_token Application.get_env(:twinder, :access_token)
@@ -15,8 +19,9 @@ defmodule Twinder.User.Followers do
   end
 
   defp create_url(username) do
+    import String, only: [replace: 3]
     @followers_url
-      |> String.replace(":username", username)
+      |> replace(":username", username)
   end
 
   defp make_a_request(url) do
@@ -24,7 +29,12 @@ defmodule Twinder.User.Followers do
   end
 
   defp parse_response({:ok, %HTTPoison.Response{body: body, headers: _headers}}) do
-    body |> JSON.decode
+    import JSON, only: [decode: 1]
+    body |> decode
+  end
+
+  defp extract_followers_info({:ok, %{"message" => "Not Found"}}) do
+    []
   end
 
   defp extract_followers_info({:ok, followers}) when is_list(followers) do
