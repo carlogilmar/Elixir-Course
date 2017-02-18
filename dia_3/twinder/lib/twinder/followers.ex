@@ -1,6 +1,8 @@
 defmodule Twinder.User.Followers do
   import String, only: [replace: 3]
   import JSON, only: [decode: 1]
+  alias Twinder.User, as: User
+  #alias HTTPoison, as HTTP
   #import Integer, only: :macros
   #import Integer, only: :functions
 
@@ -44,7 +46,7 @@ defmodule Twinder.User.Followers do
 
   defp create_a_list_of_users(users_info) do
     for {id, username} <- users_info,
-    do: Twinder.User.new(id, username)
+    do: User.new(id, username)
   end
 
 end
