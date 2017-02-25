@@ -4,19 +4,19 @@ defmodule BankAccountGS do
 
   #Api
   def start_link(balance \\ 0)do
-    GenServer.start_link(__MODULE__, balance)
+    GenServer.start_link(__MODULE__, balance, name: __MODULE__)
   end
 
-  def deposit(account, amount) do
-    GenServer.cast(account, {:deposit, amount})
+  def deposit(amount) do
+    GenServer.cast(__MODULE__, {:deposit, amount})
   end
 
-  def withdraw(account, amount) do
-    GenServer.cast(account, {:withdraw, amount})
+  def withdraw(amount) do
+    GenServer.cast(__MODULE__, {:withdraw, amount})
   end
 
-  def balance(account) do
-    GenServer.call(account, :balance)
+  def balance() do
+    GenServer.call(__MODULE__, :balance)
   end
 
   #Server CallBacks
