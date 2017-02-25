@@ -352,6 +352,11 @@ Cowboy: Proceso por conexión
 
 -------------------------------------------
 
+Usuario no significa Conexión!!!!!!
+
+http 2.0 puedes ir y pedir cosas
+http 1.0 por cada llamada pides algo
+
 
 
 
