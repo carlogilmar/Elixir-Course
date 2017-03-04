@@ -353,4 +353,83 @@ Finalmente sera posible tener algo así:
 Independiente de los modelos y consultas, es solamente el canal para usar la base de datos.
 Llama al adaptador de la DB y facilita que se tenga más de una base de datos.
 
+* Transacciones: Uno a uno
 
+> repo.transaction ( in ->
+
+# Pruebas: ExUnit
+
+- Test con Db
+- Pruebas de forma distribuida
+- test helper
+
+# Releases
+
+- Despliegue de forma uniforme
+- Se genera un tar con todo lo necesario para correr la aplicación
+- Se compilará todo el códio para generar el código de bytes, así como el de las dependencias, la máquina virtual de erlan
+y todo lo meterá en el tar.
+- No requiere un servidor con erlang o elixir.
+- Se usará *destillery*
+
+# Agregando destillery en dependencias
+
+- Agregar en mix.exs
+- Ejecutar mix deps.get
+- Compilar mix deps.compile
+- Ejecutar mix release.init (por dafult toma el ambiente de desarrollo)
+	- mix release.clean limpia los compilados
+	- mix release.clean --implode limpia el proyecto como si jamás hubiera usado destillery
+- Esto creara algo: rel/config.exs, configuración del ambiente
+- Ahora cambiaremos el archivo rel/config
+- Para escoger ambiente de producción "env MIX_ENV=prod mix release" para este ejemplo usamos "mix release"
+
+- Release "mix release"
+- Recordar en code_reloader FALSE (ambiente de desarrollo)
+- Ejecutar el primer comando del console "_build/dev/rel/speakers/bin/speakers console" 
+- Ahora con esto estará corriendo nuestra aplicación ya levantada.
+
+
+Cuando un nodo se levanta puede ser anónimo (n), para que pueda formar parte de un clase es que tenga un nombre de dos formas: 
+- Nombre corto sname speakers
+- Nombre largo speakers@127.0.0.1 
+
+Recordando los comandos:
+
+> Release successfully built!
+>    You can run it in one of the following ways:
+>      Interactive: _build/dev/rel/speakers/bin/speakers console
+>      Foreground: _build/dev/rel/speakers/bin/speakers foreground
+>      Daemon: _build/dev/rel/speakers/bin/speakers start
+
+# CONSOLE: Levantando el servicio y accediendo a una shell con nombre largo del nodo
+
+> _build/dev/rel/speakers/bin/speakers console
+
+# START: Levantando el servicio en background
+> _build/dev/rel/speakers/bin/speakers start
+¿Cómo saber si la aplicación sigue corriendo?
+
+> _build/dev/rel/speakers/bin/speakers ping
+
+> respuesta: pong
+
+# Shutdown de la aplicación
+
+> _build/dev/rel/speakers/bin/speakers stop
+
+# FOREGROUND: Correr en primer plano sin consola
+
+> _build/dev/rel/speakers/bin/speakers foreground
+
+# Entrando al release rel/speakers2/
+
+Estructura de directorios:
+
+- bin: speakers (start, stop)
+- erts: máquina virtural de erlang BEAM, epmd(revivir beam), heart, etc...
+- lib: Dependencias compiladas como .beam
+- var: 
+- releases: Versionado semántico y scripts para la shell, config de máquina virtual(nombre de nodo p.e.)
+
+* La máquina virtual no reconoce Elixir, entocnes al compilar la configuración es traducida al lenguaje Erlang
