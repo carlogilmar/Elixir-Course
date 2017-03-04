@@ -433,3 +433,12 @@ Estructura de directorios:
 - releases: Versionado semántico y scripts para la shell, config de máquina virtual(nombre de nodo p.e.)
 
 * La máquina virtual no reconoce Elixir, entocnes al compilar la configuración es traducida al lenguaje Erlang
+
+# Para el update
+
+1.- Cambiar el versionado semántico
+2.- Ejecutar "mix release --upgrade"
+3.- Si hay problema en config.exs poner set dev_mode: false
+4.- Correr la aplicación del release anterior y correr su comando de upgrade/downgrade
+
+# Ejercicio: Hacer servicio, usar siege para mandar peticiones, y hacer el upgrade para ver que jamás se para.
