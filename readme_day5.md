@@ -348,8 +348,9 @@ Finalmente sera posible tener algo así:
    |> Speakers.Repo.One
    
    
-   
+# Repo
 
-
+Independiente de los modelos y consultas, es solamente el canal para usar la base de datos.
+Llama al adaptador de la DB y facilita que se tenga más de una base de datos.
 
 
